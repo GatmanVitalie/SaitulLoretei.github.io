@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pythagorean Theorem Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h2>Calculator pentru aflarea ipotenuzei</h2>
+
+        <form id="pythagoreanForm">
+            <label for="sideA">Cateta A:</label>
+            <input type="number" id="sideA" required>
+
+            <label for="sideB">Cateta B:</label>
+            <input type="number" id="sideB" required>
+
+            <button type="button" onclick="calculate()">Calculează Ipotenuza</button>
+        </form>
+
+        <div id="result"></div>
+
+        <div class="author-info">Autor: Loreta Cojocaru</div>
+
+    </div>
+
+    <script>
+        function calculate() {
+            // Get the values of side A and side B from the input fields
+            var sideA = parseFloat(document.getElementById('sideA').value);
+            var sideB = parseFloat(document.getElementById('sideB').value);
+
+            // Check if the input values are valid numbers
+            if (!isNaN(sideA) && !isNaN(sideB)) {
+                // Calculate the hypotenuse using the Pythagorean theorem
+                var hypotenuse = Math.sqrt(Math.pow(sideA, 2) + Math.pow(sideB, 2));
+
+                // Display the result
+                document.getElementById('result').innerHTML = '<p>The length of the hypotenuse is: ' + hypotenuse.toFixed(2) + '</p>';
+            } else {
+                // Display an error message if the input values are not valid numbers
+                document.getElementById('result').innerHTML = '<p>Please enter valid numbers for side A and side B.</p>';
+            }
+        }
+    </script>
+
+</body>
+</html>
